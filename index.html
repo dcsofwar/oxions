@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="kart">
+        <img id="myImage" alt="avatar" />
+        <p>sa</p>
+    </div>
+    <script>
+        async function fetchAndDisplayImage() {
+            try {
+                const response = await fetch('https://urrl.it/api/1064557497836371978');
+                const data = await response.json();
+                console.log(data); // API yanıtını kontrol et
+                document.getElementById('myImage').src = data.avatar; // veya uygun alan
+            } catch (error) {
+                console.error('Resim alınırken bir hata oluştu:', error);
+            }
+        }
+
+        fetchAndDisplayImage();
+    </script>
+</body>
+</html>
