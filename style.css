@@ -30,9 +30,9 @@ body {
 .kart img{
   width: 150px;
   height: 150px;
-  position:relative;
+  position: absolute;
   border-radius: 50%;
-  margin-bottom: 0;
+  top: 0;
 }
 
 @keyframes fadeIn {
