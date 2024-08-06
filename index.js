@@ -10,13 +10,18 @@ function getRandomColor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-function changeBoxShadow() {
-  const box = document.querySelector('.kart');  // .box yerine .kart
-  const blur = getRandomInt(50, 200);       // Rastgele bulanıklık değeri (20px ile 100px arasında)
-  const color = getRandomColor();           // Rastgele renk
-
-  // Sabit değerlerle box-shadow, sadece blur ve renk değişir
-  box.style.boxShadow = `0 0 ${blur}px ${color}`;
+function getRandomBlur() {
+  // Rastgele bir yüzdelik değer oluştur (0% ile 100% arasında)
+  return getRandomInt(0, 20) + '%';
 }
 
-setInterval(changeBoxShadow, 1500);  // Her saniyede bir gölge rengini ve bulanıklığını değiştir
+function changeBoxShadow() {
+  const box = document.querySelector('.kart');  // .box yerine .kart
+  const blur = getRandomBlur();       // Rastgele bulanıklık değeri (0% ile 100% arasında)
+  const color = getRandomColor();     // Rastgele renk
+
+  // Sabit değerlerle box-shadow, sadece blur ve renk değişir
+  box.style.boxShadow = `0 0 ${blur} ${color}`;
+}
+
+setInterval(changeBoxShadow, 1000);  // Her saniyede bir gölge rengini ve bulanıklığını değiştir
