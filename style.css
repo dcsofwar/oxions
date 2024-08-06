@@ -33,6 +33,7 @@ body {
   position: absolute;
   border-radius: 50%;
   top: 0;
+  left: 125px;
 }
 
 @keyframes fadeIn {
