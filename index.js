@@ -13,4 +13,4 @@ function changeBoxShadow() {
   box.style.boxShadow = `${hOffset}px ${vOffset}px ${blur}px ${spread}px ${color}`;
 }
 
-setInterval(changeBoxShadow, 1000);  // Her saniyede bir gölgeyi değiştir
+setInterval(changeBoxShadow, 5000);  // Her saniyede bir gölgeyi değiştir
