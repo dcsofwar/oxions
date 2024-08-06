@@ -38,6 +38,7 @@ body {
 
 .kart h1{
   position: absolute;
+  font-size: 50px;
 }
 
 @keyframes fadeIn {
