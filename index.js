@@ -19,4 +19,4 @@ function changeBoxShadow() {
   box.style.boxShadow = `0 0 ${blur}px ${color}`;
 }
 
-setInterval(changeBoxShadow, 1000);  // Her saniyede bir gölge rengini ve bulanıklığını değiştir
+setInterval(changeBoxShadow, 1500);  // Her saniyede bir gölge rengini ve bulanıklığını değiştir
