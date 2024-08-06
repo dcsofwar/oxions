@@ -1,53 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  }
-
 body {
-  background-color: #9147ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
 }
 
-.kart{
-    display: grid;
-    background: transparent;
-    border: 2px solid rgb(244, 193, 214);
-    backdrop-filter: blur(10px);
-    width: 30%;
-    height: 85%;
-    border-radius: 10px;
-    position: absolute;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    opacity: 0;
-    animation: fadeIn 2s forwards; 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  user-select: none;
-  transition: box-shadow 1s ease-in-out, transform 1s ease-in-out;
+.card-container {
+  perspective: 1000px; /* 3D etkisi için bakış açısı */
 }
 
-.kart img{
-  width: 40%;
-  height: 32%;
-  position: absolute;
-  border-radius: 50%;
-  top: 0;
-  left: 50%;
-}
-
-.kart h1{
+.card {
+  width: 300px;
+  height: 400px;
   position: relative;
-  font-size: 50px;
-  font-family: "Noto Serif", serif;
-  color: white;
-  top: 0;
+  transform-style: preserve-3d;
+  transition: transform 1s, box-shadow 1s; /* Box-shadow için geçiş süresi ekledik */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Başlangıçta bir box-shadow */
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1; 
-    }
+.card-flip {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+}
+
+.card-front {
+  background-color: #007BFF;
+}
+
+.card-back {
+  background-color: #FF5733;
+  transform: rotateY(180deg);
 }
