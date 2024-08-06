@@ -41,6 +41,7 @@ body {
   position: absolute;
   font-size: 50px;
   font-family: "Noto Serif", serif;
+  color: white;
 }
 
 @keyframes fadeIn {
