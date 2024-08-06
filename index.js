@@ -12,7 +12,7 @@ function getRandomColor() {
 
 function getRandomBlur() {
   // Rastgele bir piksel değeri oluştur (0px ile 100px arasında)
-  return `${getRandomInt(20, 40)}px`;
+  return `${getRandomInt(30, 50)}px`;
 }
 
 function changeBoxShadow() {
