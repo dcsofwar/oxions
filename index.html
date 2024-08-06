@@ -7,22 +7,8 @@
 </head>
 <body>
     <div class="kart">
-        <img id="myImage" alt="avatar" />
+        <img src="./oxsi.png" alt="avatar" />
         <p>sa</p>
     </div>
-    <script>
-        async function fetchAndDisplayImage() {
-            try {
-                const response = await axios.get('https://discordlookup.mesalytic.moe/v1/user/1064557497836371978');
-                const data = response.data;
-                console.log(data); // API yanıtını kontrol et
-                document.getElementById('myImage').src = data.avatar[0].link; // veya uygun alan
-            } catch (error) {
-                console.error('Resim alınırken bir hata oluştu:', error);
-            }
-        }
-
-        fetchAndDisplayImage();
-    </script>
 </body>
 </html>
