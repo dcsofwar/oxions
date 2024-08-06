@@ -12,13 +12,11 @@ function getRandomColor() {
 
 function changeBoxShadow() {
   const box = document.querySelector('.kart');  // .box yerine .kart
-  const hOffset = getRandomInt(-10, 10);  // Yatay gölge
-  const vOffset = getRandomInt(-10, 10);  // Dikey gölge
-  const blur = getRandomInt(0, 50);       // Bulanıklık
-  const spread = getRandomInt(0, 10);     // Yayılma
-  const color = getRandomColor();         // Rastgele renk
+  const blur = getRandomInt(20, 100);       // Rastgele bulanıklık değeri (20px ile 100px arasında)
+  const color = getRandomColor();           // Rastgele renk
 
-  box.style.boxShadow = `${hOffset}px ${vOffset}px ${blur}px ${spread}px ${color}`;
+  // Sabit değerlerle box-shadow, sadece blur ve renk değişir
+  box.style.boxShadow = `0 0 ${blur}px ${color}`;
 }
 
-setInterval(changeBoxShadow, 1000);  // Her saniyede bir gölgeyi değiştir
+setInterval(changeBoxShadow, 1000);  // Her saniyede bir gölge rengini ve bulanıklığını değiştir
