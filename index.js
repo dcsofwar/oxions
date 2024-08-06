@@ -3,7 +3,7 @@ function getRandomInt(min, max) {
 }
 
 function changeBoxShadow() {
-    const box = document.querySelector('.box');
+    const box = document.querySelector('.kart');
     const hOffset = getRandomInt(-10, 10);  // Yatay gölge
     const vOffset = getRandomInt(-10, 10);  // Dikey gölge
     const blur = getRandomInt(0, 20);       // Bulanıklık
