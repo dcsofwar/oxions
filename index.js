@@ -12,7 +12,7 @@ function getRandomColor() {
 
 function getRandomBlur() {
   // Rastgele bir yüzdelik değer oluştur (0% ile 100% arasında)
-  return getRandomInt(0, 20) + '%';
+  return getRandomInt(20, 30) + '%';
 }
 
 function changeBoxShadow() {
