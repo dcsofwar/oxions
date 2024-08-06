@@ -11,13 +11,13 @@ function getRandomColor() {
 }
 
 function getRandomBlur() {
-  // Rastgele bir yüzdelik değer oluştur (0% ile 100% arasında)
-  return getRandomInt(20, 30) + '%';
+  // Rastgele bir piksel değeri oluştur (0px ile 100px arasında)
+  return `${getRandomInt(20, 40)}px`;
 }
 
 function changeBoxShadow() {
   const box = document.querySelector('.kart');  // .box yerine .kart
-  const blur = getRandomBlur();       // Rastgele bulanıklık değeri (0% ile 100% arasında)
+  const blur = getRandomBlur();       // Rastgele bulanıklık değeri (0px ile 100px arasında)
   const color = getRandomColor();     // Rastgele renk
 
   // Sabit değerlerle box-shadow, sadece blur ve renk değişir
