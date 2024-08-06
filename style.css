@@ -19,6 +19,7 @@ body {
     position: absolute;
     align-items: center;
     text-align: center;
+    justify-content: center;
     opacity: 0;
     animation: fadeIn 2s forwards; 
     top: 50%;
