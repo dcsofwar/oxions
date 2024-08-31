@@ -13,8 +13,8 @@ body {
     background: transparent;
     border: 2px solid rgb(244, 193, 214);
     backdrop-filter: blur(10px);
-    width: 30%;
-    height: 85%;
+    width: 10rem;
+    height: 30rem;
     border-radius: 10px;
     position: absolute;
     align-items: center;
