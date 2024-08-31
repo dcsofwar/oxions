@@ -39,11 +39,11 @@ body {
 }
 
 .kart h1{
-  position: absolute;
+  position: relative;
   font-size: 3rem;
   font-family: "Noto Serif", serif;
   color: white;
-  left: 50%;
+  top: -1rem;
 }
 
 @keyframes fadeIn {
