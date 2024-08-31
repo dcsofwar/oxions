@@ -71,6 +71,8 @@ body {
   color: white;
   cursor: pointer;
   transition: background-color 0.5s ease;
+  position: relative;
+  left: 25%
 }
 
 .kart button:hover {
