@@ -11,7 +11,7 @@ body {
 .kart{
     display: grid;
     background: transparent;
-    border: 2% solid rgb(244, 193, 214);
+    border: 2px solid rgb(244, 193, 214);
     backdrop-filter: blur(10px);
     width: 30%;
     height: 85%;
