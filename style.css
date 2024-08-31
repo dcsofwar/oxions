@@ -59,6 +59,8 @@ body {
   text-decoration: none;
   width: 100%;
   margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center; /* Butonların kart ortasında hizalanmasını sağlar */
 }
 
 .kart button {
@@ -71,8 +73,6 @@ body {
   color: white;
   cursor: pointer;
   transition: background-color 0.5s ease;
-  position: relative;
-  left: 25%
 }
 
 .kart button:hover {
