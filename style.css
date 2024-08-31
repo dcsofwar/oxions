@@ -45,8 +45,29 @@ body {
   color: white;
   top: -5rem;
 }
-.kart button{
-  margin-top: -30px;
+.kart a {
+  display: block;
+  margin-top: 10px; /* Butonlar arasındaki boşluğu ayarlar */
+}
+
+.kart a:first-child {
+  margin-top: 20px; /* İlk butonun üstten boşluğu biraz daha büyük olabilir */
+}
+
+.kart button {
+  width: 100%; /* Butonların genişliğini yüzdeye göre ayarlayarak responsive olmasını sağlar */
+  padding: 10px; /* Buton içi boşluk */
+  font-size: 1rem; /* Buton metin boyutu */
+  border: none;
+  border-radius: 5px;
+  background-color: #6c63ff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.kart button:hover {
+  background-color: #5a52e0; /* Hover durumunda arka plan rengi */
 }
 
 @keyframes fadeIn {
