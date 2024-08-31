@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
 
 * {
   margin: 0;
@@ -41,17 +41,19 @@ body {
 .kart h1 {
   font-size: 2rem;
   font-family: "Noto Serif", serif;
-  background: linear-gradient(270deg, #FF3C3C, #FFBF00, #009FFF, #8E44AD, #FF3C3C, #FFBF00, #009FFF, #8E44AD, #FF3C3C);
+  background: linear-gradient(270deg, #FF3C3C, #FFBF00, #009FFF, #8E44AD, #FF3C3C, #FFBF00, #009FFF, #8E44AD);
+  background-size: 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientChange 5s ease-in-out infinite;
+  animation: gradientChange 5s ease infinite;
   margin-bottom: 1rem;
 }
 
 @keyframes gradientChange {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 .kart a {
   text-decoration: none;
