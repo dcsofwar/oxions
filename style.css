@@ -46,7 +46,7 @@ body {
   top: -5rem;
 }
 .kart button{
-  margin: 1rem;
+  margin-top: 0;
 }
 
 @keyframes fadeIn {
