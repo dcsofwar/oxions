@@ -32,18 +32,65 @@ body {
 .kart img{
   width: 8rem;
   height: 8rem;
-  position: absolute;
+  position: relative;
   border-radius: 50%;
-  top: 0;
-  left: 32%;
+  margin-top: 1rem;
 }
 
 .kart h1{
-  position: absolute;
-  font-size: 3rem;
+  margin-top: 10rem; /* Fotoğrafın hemen altına gelecek şekilde */
+  font-size: 2rem; /* Responsive tasarım için biraz küçültüldü */
   font-family: "Noto Serif", serif;
   color: white;
-  left: 50%;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .kart {
+    width: 15rem;
+    height: 25rem;
+  }
+
+  .kart img{
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .kart h1{
+    margin-top: 8rem;
+    font-size: 1.5rem;
+  }
+}.kart img{
+  width: 8rem;
+  height: 8rem;
+  position: relative;
+  border-radius: 50%;
+  margin-top: 1rem;
+}
+
+.kart h1{
+  margin-top: 10rem; /* Fotoğrafın hemen altına gelecek şekilde */
+  font-size: 2rem; /* Responsive tasarım için biraz küçültüldü */
+  font-family: "Noto Serif", serif;
+  color: white;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .kart {
+    width: 15rem;
+    height: 25rem;
+  }
+
+  .kart img{
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .kart h1{
+    margin-top: 8rem;
+    font-size: 1.5rem;
+  }
 }
 
 @keyframes fadeIn {
