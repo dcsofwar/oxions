@@ -1,45 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="index.js"></script>
-</head>
-<body>
-    <div class="card-container">
-        <div class="card" id="card">
-            <div class="card-face card-front">
-                <img src="./oxsi.png" alt="avatar" />
-                <h1>Oxsions</h1>
-                <a target="_blank" href="https://discord.gg/bVXKDsank4">
-                    <button>Discord</button>
-                </a>
-                <a target="_blank" href="https://www.tiktok.com/@oxsions">
-                    <button>Tiktok</button>
-                </a>
-                <a target="_blank" href="https://www.youtube.com/@oxsions">
-                    <button>Youtube</button>
-                </a>
-                <a target="_blank" href="https://open.spotify.com/user/c9ajhiqasziku5va371dy4vi1?si=1230dd4b7e6e460f&nd=1&dlsi=bf4573ff1ddd4268">
-                    <button>Spotify</button>
-                </a>
-                <button onclick="flipCard()">Bilgilerim</button>
-            </div>
-            <div class="card-face card-back">
-                <!-- Arkada gösterilecek bilgiler burada olacak -->
-                <h1>Bilgilerim</h1>
-                <p>Buraya bilgiler gelecek...</p>
-            </div>
-        </div>
-    </div>
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-    <script>
-        function flipCard() {
-            const card = document.getElementById('card');
-            card.classList.toggle('card-flip');
-        }
-    </script>
-</body>
-</html>
+function getRandomColor() {
+  const r = getRandomInt(0, 255);
+  const g = getRandomInt(0, 255);
+  const b = getRandomInt(0, 255);
+  return `rgb(${r}, ${g}, ${b})`;
+}
 
+function getRandomBlur() {
+  return `${getRandomInt(0, 100)}px`;
+}
+
+function changeBoxShadow() {
+  const card = document.getElementById('card');
+  const blur = getRandomBlur();       // Rastgele bulanıklık değeri (0px ile 100px arasında)
+  const color = getRandomColor();     // Rastgele renk
+
+  // Sabit değerlerle box-shadow, sadece blur ve renk değişir
+  card.style.boxShadow = `0 0 ${blur} ${color}`;
+}
+
+// Kart tıklama olayını dinle
+const card = document.getElementById('card');
+card.addEventListener('click', function() {
+  card.classList.toggle('card-flip');
+  changeBoxShadow();  // Kart çevrildiğinde box-shadow'u güncelle
+});
+
+// Başlangıçta da bir box-shadow ayarla
+changeBoxShadow();
