@@ -22,7 +22,7 @@ body {
     justify-content: center;
     opacity: 0;
     animation: fadeIn 2s forwards; 
-    top: 50%;
+    top: 1rem;
     left: 50%;
     transform: translate(-50%,-50%);
   user-select: none;
