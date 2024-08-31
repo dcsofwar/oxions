@@ -9,8 +9,7 @@ body {
 }
 
 .kart{
-    display: flex;
-    flex-direction: column;
+    display: grid;
     background: transparent;
     border: 2px solid rgb(244, 193, 214);
     backdrop-filter: blur(10px);
@@ -26,40 +25,26 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    user-select: none;
-    transition: box-shadow 1s ease-in-out, transform 1s ease-in-out;
-    padding-top: 2rem;
+  user-select: none;
+  transition: box-shadow 1s ease-in-out, transform 1s ease-in-out;
 }
 
 .kart img{
   width: 8rem;
   height: 8rem;
+  position: absolute;
   border-radius: 50%;
+  top: 0;
+  left: 32%;
 }
 
 .kart h1{
-  margin-top: 1rem; /* Resmin hemen altına gelecek şekilde ayarlandı */
-  font-size: 2rem; /* Responsive tasarım için ayarlandı */
+  position: absolute;
+  font-size: 3rem;
   font-family: "Noto Serif", serif;
   color: white;
+  left: 50%;
 }
-
-@media screen and (max-width: 768px) {
-  .kart {
-    width: 15rem;
-    height: 25rem;
-  }
-
-  .kart img{
-    width: 6rem;
-    height: 6rem;
-  }
-
-  .kart h1{
-    font-size: 1.5rem;
-  }
-}
-
 
 @keyframes fadeIn {
     to {
