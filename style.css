@@ -16,29 +16,54 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.kart {
+.card-container {
+  perspective: 1000px; /* 3D etkisi için bakış açısı */
+}
+
+.card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1); /* Arka planın hafif saydam olması için */
   border: 2px solid rgb(244, 193, 214);
   backdrop-filter: blur(10px);
   width: 20rem;
   padding: 1rem;
   border-radius: 10px;
   opacity: 0;
-  animation: fadeIn 2s forwards; 
+  animation: fadeIn 2s forwards;
   transition: box-shadow 1s ease-in-out, transform 1s ease-in-out;
+  transform-style: preserve-3d;
 }
 
-.kart img {
+.card-face {
+  position: absolute;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.card-flip {
+  transform: rotateY(180deg);
+}
+
+.card img {
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
   margin-bottom: 1rem;
 }
 
-.kart h1 {
+.card h1 {
   font-size: 2rem;
   font-family: "Noto Serif", serif;
   background: linear-gradient(270deg, #FF3C3C, #FFBF00, #009FFF, #8E44AD, #FF3C3C, #FFBF00, #009FFF, #8E44AD);
@@ -55,7 +80,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-.kart a {
+.card a {
   text-decoration: none;
   width: 100%;
   margin-bottom: 0.5rem;
@@ -63,7 +88,7 @@ body {
   justify-content: center; /* Butonların kart ortasında hizalanmasını sağlar */
 }
 
-.kart button {
+.card button {
   width: 50%;
   padding: 10px;
   font-size: 1rem;
@@ -75,7 +100,7 @@ body {
   transition: background-color 0.5s ease;
 }
 
-.kart button:hover {
+.card button:hover {
   background-color: #6b3fa0;
 }
 
@@ -86,15 +111,15 @@ body {
 }
 
 @media (max-width: 768px) {
-  .kart {
+  .card {
     width: 90%;
   }
 
-  .kart h1 {
+  .card h1 {
     font-size: 1.5rem;
   }
 
-  .kart button {
+  .card button {
     padding: 8px;
     font-size: 0.9rem;
   }
