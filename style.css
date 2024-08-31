@@ -22,7 +22,7 @@ body {
     justify-content: center;
     opacity: 0;
     animation: fadeIn 2s forwards; 
-    top: 1rem;
+    top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
   user-select: none;
@@ -43,7 +43,7 @@ body {
   font-size: 3rem;
   font-family: "Noto Serif", serif;
   color: white;
-  top: 0;
+  top: 1rem;
 }
 
 @keyframes fadeIn {
