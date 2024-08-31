@@ -30,8 +30,8 @@ body {
 }
 
 .kart img{
-  width: 40%;
-  height: 32%;
+  width: 10rem;
+  height: 10rem;
   position: absolute;
   border-radius: 50%;
   top: 0;
