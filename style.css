@@ -41,9 +41,17 @@ body {
 .kart h1 {
   font-size: 2rem;
   font-family: "Noto Serif", serif;
-  color: white;
+  background: linear-gradient(270deg, #FF3C3C, #FFBF00, #009FFF, #8E44AD, #FF3C3C, #FFBF00, #009FFF, #8E44AD, #FF3C3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientChange 5s ease-in-out infinite;
   margin-bottom: 1rem;
 }
+
+@keyframes gradientChange {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
 
 .kart a {
   text-decoration: none;
