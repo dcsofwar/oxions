@@ -2,14 +2,20 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>Kart Tasarımı</title>
+    <title id="site-baslik"></title>
+    <link id="blabla" rel="icon" href=""/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@300;400;700&family=Noto+Serif:wght@400;700&display=swap');
-
+        @font-face{
+          font-family: 'title';
+          src: url("https://oxsions.neocities.org/Starborn.ttf") format('truetype');
+          }
+        @font-face{
+          font-family: 'old';
+          src: url("https://oxsions.neocities.org/Rajdhani-Bold.ttf") format('truetype');
+          }
         * {
             margin: 0;
             padding: 0;
@@ -17,7 +23,6 @@
         }
 
         body {
-            background-image: url("arkaplan.jpg");
             background-size: cover;
             display: flex;
             align-items: center;
@@ -25,156 +30,332 @@
             height: 100vh;
             font-family: 'Lato', sans-serif;
         }
+.card-face{
+    width: 25em;
+    height: 35em;
+    border: 5px solid white;
+    border-radius: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(30px);
+    flex-direction: column;
+    transition: transform 1s,opacity 3s; /* Geçiş süresi burada */
+    perspective: 1000;
+    position: relative; /* Pozisyonu relative yapın */
+    overflow: hidden;
+    opacity: 0;
+}
+.card-back,
+.card-front{
+    border: none; /* sadece buraya border ekle */
+  }
 
-        .card-container {
-            perspective: 1000px;
-            width: 100%; /* Kartın tam genişliğe yayılması */
-            max-width: 400px; /* Maksimum genişlik ayarı */
-            margin: auto; /* Ortada konumlandırma */
-        }
+.card-back {
+  background-image: url("https://oxsions.neocities.org/download.jpg");
+  background-size: 100% 100%;  /* Fotoğrafı hem yatay hem dikey olarak yüzde 100 ölçeklendir */
+  background-position: center bottom; /* Fotoğrafın merkezi ekranda odaklanır */
+  background-repeat: no-repeat; /* Fotoğrafın tekrarlanmasını engeller */
+  visibility: hidden;
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;  /* Genişliği tam ekran yapar */
+  height: 100vh; /* Yüksekliği de ekranın tamamına yayar (viewport height) */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
 
-        .card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgb(244, 193, 214);
-            backdrop-filter: blur(10px);
-            width: 100%; /* Kartın genişliği %100 */
-            height: 500px; /* Kartın yüksekliği */
-            padding: 1rem;
-            border-radius: 10px;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-            transition: box-shadow 1s ease-in-out, transform 1s ease-in-out;
-            transform-style: preserve-3d;
-            position: relative; /* Konumlandırma için ayar */
-        }
-
-        .card-face {
-            position: absolute;
-            width: 100%;
-            backface-visibility: hidden;
-        }
-
-        .card-front {
-            z-index: 2;
-            transform: rotateY(0deg);
-        }
-
-        .card-back {
-            transform: rotateY(180deg);
-            z-index: 1;
-        }
-
-        .card-flip {
-            transform: rotateY(180deg);
-        }
-
-        .card img {
-            width: 8rem;
-            height: 8rem;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-        }
-
-        .card h1 {
+.card-back h1{
+  position: relative;
+  margin-top: 0px;
+  width: 1000%;
+  height: 50px;
+  background: #fce0c7;
+  }
+.card-back p{
+  margin-top: 30px;
+  font-family: "old";
+  opacity: 0.5;
+  }
+.card-back a{
+  position:relative;
+  margin-top: 30px;
+  z-index: 3;
+  }
+        .card-front h1 {
             font-size: 2rem;
-            font-family: "Noto Serif", serif;
+            font-family: "title";
             background: linear-gradient(270deg, #FF3C3C, #FFBF00, #009FFF, #8E44AD);
             background-size: 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradientChange 5s ease infinite;
-            margin-bottom: 50%;
+            margin-bottom: 15%;
             text-align: center; /* Metni ortala */
         }
-
+        .card-front img{
+          border-radius: 50%;
+          display: flex;
+          width: 10em;
+          height: 10em;
+          justify-content: center;
+          align-items: center;
+          margin-left: 10px;
+          }
+ a{
+          text-decoration: none;
+          padding: 8px 3px;
+          color: white;
+          width: 200px;
+          height: 38px;
+          background-color: purple;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 10px;
+          border-radius: 30px;
+          }
+        .card-front i{
+          margin-right: 10px;
+          }
+        .card-front a:first-of-type i{
+          color: white;
+          }
+        .card-front a:nth-of-type(2) i{
+          color: black
+          }
+        .card-front:nth-of-type(2) a{
+          color: black
+          }
+        .card-front a:nth-of-type(3) i{
+          
+          color: #32acef;
+          }
+         .card-front a:nth-of-type(4) i{
+          
+          color: lightgreen;
+          }
+                  .card-front a:nth-of-type(5) i{
+          
+          color: brown;
+          }
+          
+          
+        
         @keyframes gradientChange {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
-        .card a {
-            text-decoration: none;
-            width: 100%;
-            margin-bottom: 0.5rem;
-            display: flex;
-            justify-content: center;
-        }
-
-        .card button {
-            width: 50%;
-            padding: 10px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 20px;
-            background-color: #660099;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.5s ease;
-        }
-
-        .card button:hover {
-            background-color: #6b3fa0;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .card {
-                width: 90%;
-            }
-
-            .card h1 {
-                font-size: 1.5rem;
-            }
-
-            .card button {
-                padding: 8px;
-                font-size: 0.9rem;
-            }
-        }
+        .butons{
+          display: flex;
+          flex-direction: column;
+          }
+         a{
+          font-weight: 2em;
+          box-shadow: 3px 3px 3px aqua;
+          cursor: pointer;
+          text-shadow: 0 0 8px pink;
+          transition: background-color 3s ease,color 3s ease, box-shadow 3s ease;
+          }
     </style>
 </head>
-<body>
-    <div class="card-container">
-        <div class="card" id="card">
-            <div class="card-face card-front">
-                <img src="./oxsi.png" alt="avatar" />
-                <h1>Oxsions</h1>
-                <a target="_blank" href="https://discord.gg/bVXKDsank4">
-                    <button>Discord</button>
+<body id="body">
+    <div class="card-face" id="card-face">
+            <div class="card-front" id="cf">
+            <div class="avaar">
+                <img src="" alt="avatar"  id="avatar"/>
+                </div>
+                <h1 id="isim"></h1>
+                <div class="butons">
+                <a target="_blank" id="instagram" href=""><i id="ikon1" class="fa-brands fa-instagram"></i> İnstagram
                 </a>
-                <a target="_blank" href="https://www.tiktok.com/@oxsions">
-                    <button>Tiktok</button>
+                <a target="_blank" id="tiktok" href=""><i id="ikon2" class="fa-brands fa-tiktok"></i> Tiktok
                 </a>
-                <a target="_blank" href="https://www.youtube.com/@oxsions">
-                    <button>Youtube</button>
+                <a target="_blank" id="twitter" href=""><i id="ikon3" class="fa-brands fa-twitter"></i> Twitter
                 </a>
-                <a target="_blank" href="https://open.spotify.com/user/c9ajhiqasziku5va371dy4vi1?si=1230dd4b7e6e460f&nd=1&dlsi=bf4573ff1ddd4268">
-                    <button>Spotify</button>
+                <a target="_blank" id="spotify" href=""><i id="ikon4" class="fa-brands fa-spotify"></i> Spotify
                 </a>
-                <button onclick="flipCard()">Bilgilerim</button>
-            </div>
-            <div class="card-face card-back">
-                <h1>Bilgilerim</h1>
-                <p>Buraya bilgiler gelecek...</p>
+                <a onclick="flipCard()" id="info"><i id="ikon5" class="fa-solid fa-book"></i> Bilgilerim</a>
+                </div>
+                </div>
+            <div class="card-back" id="cb">
+                <h1 id="h-1"></h1>
+                <p id="yazi"></p>
+                <a id="return" onclick="flipCardr()"><i id="ikon6" class="fa-solid fa-arrow-right"></i> Geri Dön</a>
             </div>
         </div>
-    </div>
 
     <script>
-        function flipCard() {
-            const card = document.getElementById('card');
-            card.classList.toggle('card-flip');
+    window.onload = function() {
+    document.getElementById('card-face').style.opacity = 1;
+    const date = new Date();
+    let hour = date.getHours();
+    if (hour >= 6 && hour <= 17){
+      document.getElementById('body').style = 'background-image: url("https://oxsions.neocities.org/morning.jpg")';
+      }else{
+        document.getElementById('body').style = 'background-image: url("https://oxsions.neocities.org/night.jpg")';
         }
+    
+};
+
+    fetch('main.json')
+            .then(response => response.json())
+            .then(data => {
+                 document.getElementById('site-baslik').textContent = data.sitebaslik;
+                document.getElementById('blabla').setAttribute('href', data.resim);
+                document.getElementById('instagram').setAttribute('href', data.instagram);
+                document.getElementById('tiktok').setAttribute('href', data.tiktok);
+                document.getElementById('twitter').setAttribute('href', data.twitter);
+                document.getElementById('spotify').setAttribute('href', data.spotify);
+                document.getElementById('h-1').textContent = data.baslik;
+                document.getElementById('yazi').textContent = data.yazi;
+                document.getElementById('isim').textContent = data.isim;
+                document.getElementById('avatar').setAttribute('src', data.resim);
+            })
+            .catch(error => console.error('Hata:', error));
+function flipCard() {
+    const card = document.getElementById('card-face');
+    card.style.transition = 'transform 1s'; // Geçiş süresini ayarlayın
+    card.style.transform = 'rotateY(-180deg)';
+
+    setTimeout(() => {
+        document.getElementById('cf').style.visibility = 'hidden';
+        document.getElementById('cb').style.visibility = 'visible';
+        card.style.backgroundColor = "white";
+    }, 1000); // Dönüşüm süresi ile aynı süreyi kullanın
+}
+
+function flipCardr() {
+    const card = document.getElementById('card-face');
+    card.style.transition = 'transform 1s'; // Geçiş süresini ayarlayın
+    card.style.transform = 'rotateY(0deg)';
+    card.classList.add('center');
+    setTimeout(() => {
+       document.getElementById('cf').style.visibility = 'visible';
+        document.getElementById('cb').style.visibility = 'hidden';
+        card.style.backgroundColor = "transparent";
+    }, 1000); // Dönüşüm süresi ile aynı süreyi kullanın
+}
+let basis = false;
+document.body.addEventListener('click', function() {
+  if (!basis){
+      var audio = new Audio('https://rudsdev.xyz/sesler/mot.mp3');
+      audio.loop = true;
+    audio.play();
+    basis = true;}
+  });
+
+
+const one = document.getElementById('instagram');
+const two = document.getElementById('tiktok');
+const three = document.getElementById('twitter');
+const four = document.getElementById('spotify');
+const five = document.getElementById('info');
+const six = document.getElementById('return');
+
+one.addEventListener('mouseover', function() {
+  const ikon = document.getElementById('ikon1');
+  ikon.style = "font-size: 24px";
+  one.style.background = "linear-gradient(270deg, #FF3C3C, #FFBF00, #009FFF, #8E44AD)";
+  one.style.boxShadow = "3px 3px 3px yellow";
+  // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
+  one.innerHTML = ikon.outerHTML; // sadece i etiketinin içeriği
+});
+one.addEventListener('mouseout', function() {
+  const ikon = document.getElementById('ikon1');
+  ikon.style = "font-size: 1em";
+  one.style.background = "purple";
+  one.style.boxShadow = "3px 3px 3px aqua";
+  // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
+  one.innerHTML = ikon.outerHTML + "İnstagram"; // sadece i etiketinin içeriği
+});
+two.addEventListener('mouseover', function() {
+  const ikon = document.getElementById('ikon2');
+  ikon.style.fontSize = "24px";
+  ikon.style.color = "white";
+  two.style.background = "black";
+  two.style.boxShadow = "3px 3px 3px white";
+  // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
+  two.innerHTML = ikon.outerHTML; // sadece i etiketinin içeriği
+});
+two.addEventListener('mouseout', function() {
+  const ikon = document.getElementById('ikon2');
+  ikon.style = "font-size: 1em";
+  two.style.background = "purple";
+  two.style.boxShadow = "3px 3px 3px aqua";
+  // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
+  two.innerHTML = ikon.outerHTML + "Tiktok"; // sadece i etiketinin içeriği
+});
+three.addEventListener('mouseover', function() {
+  const ikon = document.getElementById('ikon3');
+  ikon.style = "font-size: 24px";
+  three.style.background = "white";
+  three.style.boxShadow = "3px 3px 3px #32acef";
+  // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
+  three.innerHTML = ikon.outerHTML; // sadece i etiketinin içeriği
+});
+three.addEventListener('mouseout', function() {
+  const ikon = document.getElementById('ikon3');
+  ikon.style = "font-size: 1em";
+  three.style.background = "purple";
+  three.style.boxShadow = "3px 3px 3px aqua";
+  // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
+  three.innerHTML = ikon.outerHTML + "Twitter"; // sadece i etiketinin içeriği
+});
+four.addEventListener('mouseover', function() {
+  const ikon = document.getElementById('ikon4');
+  ikon.style = "font-size: 24px";
+  four.style.background = "black";
+  four.style.boxShadow = "3px 3px 3px lightgreen";
+  // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
+  four.innerHTML = ikon.outerHTML; // sadece i etiketinin içeriği
+});
+four.addEventListener('mouseout', function() {
+  const ikon = document.getElementById('ikon4');
+  ikon.style = "font-size: 1em";
+  four.style.background = "purple";
+  four.style.boxShadow = "3px 3px 3px aqua";
+  // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
+  four.innerHTML = ikon.outerHTML + "Spotify"; // sadece i etiketinin içeriği
+});
+five.addEventListener('mouseover', function() {
+  const ikon = document.getElementById('ikon5');
+  ikon.style.fontSize = "24px";
+  ikon.style.color = "white";
+  five.style.background = "brown";
+  five.style.boxShadow = "3px 3px 3px brown";
+  // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
+  five.innerHTML = ikon.outerHTML; // sadece i etiketinin içeriği
+});
+five.addEventListener('mouseout', function() {
+  const ikon = document.getElementById('ikon5');
+  ikon.style = "font-size: 1em";
+  five.style.background = "purple";
+  five.style.boxShadow = "3px 3px 3px aqua";
+  // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
+  five.innerHTML = ikon.outerHTML + "Bilgilerim"; // sadece i etiketinin içeriği
+});
+six.addEventListener('mouseover', function() {
+  const ikon = document.getElementById('ikon6');
+  ikon.style.fontSize = "24px";
+  six.style.background = "black";
+  six.style.boxShadow = "3px 3px 3px white";
+  // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
+  six.innerHTML = ikon.outerHTML; // sadece i etiketinin içeriği
+});
+six.addEventListener('mouseout', function() {
+  const ikon = document.getElementById('ikon6');
+  ikon.style = "font-size: 1em";
+  six.style.background = "purple";
+  six.style.boxShadow = "3px 3px 3px aqua";
+  // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
+  six.innerHTML = ikon.outerHTML + "Geri Dön"; // sadece i etiketinin içeriği
+});
     </script>
 </body>
 </html>
