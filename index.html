@@ -209,7 +209,8 @@
             .then(response => response.json())
             .then(data => {
                  document.getElementById('site-baslik').textContent = data.sitebaslik;
-                document.getElementById('blabla').setAttribute('href', data.resim);
+                const icon = data.resim;
+                document.getElementById('blabla').setAttribute('href', `https://rudsdev.xyz/api/yuvarlak-kenar?resim=${icon}`);
                 document.getElementById('instagram').setAttribute('href', data.instagram);
                 document.getElementById('tiktok').setAttribute('href', data.tiktok);
                 document.getElementById('twitter').setAttribute('href', data.twitter);
