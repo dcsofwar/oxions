@@ -133,7 +133,7 @@
           }
         .card-front a:nth-of-type(3) i{
           
-          color: #32acef;
+          color: red;
           }
          .card-front a:nth-of-type(4) i{
           
@@ -176,7 +176,7 @@
                 </a>
                 <a target="_blank" id="tiktok" href=""><i id="ikon2" class="fa-brands fa-tiktok"></i> Tiktok
                 </a>
-                <a target="_blank" id="twitter" href=""><i id="ikon3" class="fa-brands fa-twitter"></i> Twitter
+                <a target="_blank" id="twitter" href=""><i id="ikon3" class="fa-brands fa-youtube"></i> Youtube
                 </a>
                 <a target="_blank" id="spotify" href=""><i id="ikon4" class="fa-brands fa-spotify"></i> Spotify
                 </a>
@@ -294,8 +294,9 @@ two.addEventListener('mouseout', function() {
 three.addEventListener('mouseover', function() {
   const ikon = document.getElementById('ikon3');
   ikon.style = "font-size: 24px";
-  three.style.background = "white";
-  three.style.boxShadow = "3px 3px 3px #32acef";
+  ikon.style.color = "white";
+  three.style.background = "red";
+  three.style.boxShadow = "3px 3px 3px white";
   // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
   three.innerHTML = ikon.outerHTML; // sadece i etiketinin içeriği
 });
@@ -305,7 +306,7 @@ three.addEventListener('mouseout', function() {
   three.style.background = "purple";
   three.style.boxShadow = "3px 3px 3px aqua";
   // İkonun içeriğini (i etiketinin içeriğini) alıyoruz
-  three.innerHTML = ikon.outerHTML + "Twitter"; // sadece i etiketinin içeriği
+  three.innerHTML = ikon.outerHTML + "Youtube"; // sadece i etiketinin içeriği
 });
 four.addEventListener('mouseover', function() {
   const ikon = document.getElementById('ikon4');
